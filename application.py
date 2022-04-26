@@ -6,11 +6,9 @@ import os
 application = Flask(__name__)
 cors = CORS(application, resources={r"/*": {"origins": "*"}})
 
-
 @application.route('/')
 def main():
-    return render_template("index.html")
-
+    return 'hello python'
 
 @application.route('/fileupload', methods=['POST'])
 def file_upload():
@@ -27,7 +25,6 @@ def file_upload():
         ContentType=file.content_type
     )
     return jsonify({'result': 'success'})
-
 
 if __name__ == '__main__':
     application.debug = True
